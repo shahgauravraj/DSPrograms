@@ -47,8 +47,6 @@ void arrange()
 {
     node *p, *q;
     char temp;
-    p = start;
-    q = start->next;
 
     for(p=start; p!=NULL; p=p->next)
     {

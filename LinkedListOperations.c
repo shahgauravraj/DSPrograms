@@ -123,7 +123,7 @@ void delete(int loc)
     
     else
     {
-        struct Node* p =start, *q;
+        struct Node* p = start, *q;
         int i = 1;
         while(i < (loc-1))
         {
