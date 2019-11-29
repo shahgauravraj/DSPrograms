@@ -82,10 +82,13 @@ void arrange()
 
 void display(node* n)
 {
+    printf("\n");
     while (n->next != start)
     {
         printf("%c\t", n->ch);
         n = n->next;
     }
     printf("%c\t", n->ch);
+    printf("\n");
+
 }

@@ -65,7 +65,7 @@ void arrange()
 
 int main()
 {
-    char a[] = "Gandhi";
+    char a[] = "Gaurav";
     int i, len;
 
     for(len=0; a[len] != '\0'; len++);

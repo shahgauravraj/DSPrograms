@@ -3,11 +3,16 @@ int main()
 {
     int n;
     int i, j;
-    char s[20] = "Gandhi";
+    char s[] = "Gandhi";
     char temp;
 
+    printf("Before:\n");
+    for(i=0; s[i] != '\0'; i++)
+    {
+        printf(" %c: %d\t", s[i], s[i]);
+    }
+
     for(n=0; s[n] != '\0'; n++);
-    printf("%d\n", n);
 
     for(i=0; i<n-1; i++)
     {
@@ -22,9 +27,10 @@ int main()
         }
     }
 
+    printf("\nAfter:\n");
     for(i=0; s[i] != '\0'; i++)
     {
-        printf(" %c, %d\t", s[i], s[i]);
+        printf(" %c: %d\t", s[i], s[i]);
     }
 return 0;
 }
