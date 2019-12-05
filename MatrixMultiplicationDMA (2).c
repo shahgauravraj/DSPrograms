@@ -58,7 +58,7 @@ int main()
             }
         }
         
-        printf("Sum of the matrices is:\n");
+        printf("Product of the matrices is:\n");
         for(i=0;i<r1;i++)
         {
             for(j=0;j<c2;j++)
@@ -67,8 +67,5 @@ int main()
             }
             printf("\n");
         }
-        
     }
-    
-    
 }

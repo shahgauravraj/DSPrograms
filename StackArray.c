@@ -49,9 +49,8 @@ void main()
             case 4:
                 for(i=s.top;i>-1;i--)
                     {
-                        printf("%d\n", s.stk[i]);
+                        printf("\t%d\n", s.stk[i]);
                     }
-                loop = 0;
                 break;
             case 5:
                 printf("Termination Successful!\n");
@@ -80,8 +79,8 @@ void push(int new)
 {
     if(isFull()) printf("Stack Overflow!\n");
     else {
-        s.top ++;
-        s.stk[s.top] = new;
+        //s.top ++;
+        s.stk[++s.top] = new;
     }
 }
 
@@ -89,8 +88,8 @@ void pop()
 {
     if(isEmpty()) printf("Stack Underflow!\n");
     else {
-        printf("Item popped is: %d\n", s.stk[s.top]);
-        s.top --;
+        printf("Item popped is: %d\n", s.stk[s.top--]);
+        // s.top --;
     }
 }
 

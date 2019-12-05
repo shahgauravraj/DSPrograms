@@ -28,8 +28,8 @@ int main()
     
     
     //Swapping strings if greater using Bubble Sort Method
-    for(i=1;i<n;i++){
-        for(j=0;j<(n-i);j++)
+    for(i=0;i<n;i++){
+        for(j=0;j<(n-1-i);j++)
             if(strcmp(str[j], str[j+1])>0)
             {
                 strcpy(temp, str[j]); 
