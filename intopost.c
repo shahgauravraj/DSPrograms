@@ -18,19 +18,19 @@ int prcd(char ch)
 { 	 int p;
   	switch(ch)
  	{
-        case '$':
-        case '^':p=3;
-           		break;
+      case '$':
+      case '^':p=3;
+           	break;
 
- 		case '*':
- 		case '/':p=2;
+ 		  case '*':
+ 		  case '/':p=2;
     		    break;
 
    		case '+':
  	    case '-':p=1;
            		break;
 
-        case '(':p=-1;
+      case '(':p=-1;
              	break;
     }
   return p;

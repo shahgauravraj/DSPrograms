@@ -50,8 +50,8 @@ int main()
             case 4:display(start);
                     break;
 
-            case 5: reverse();
-                    break;
+            // case 5: reverse();
+            //         break;
 
             case 6: printf("Number of Elements in the list = %d\n", length(start));
                     break;
@@ -82,12 +82,18 @@ void insertatBegin(int x)
     {
         start = temp;
         start->data = x;
-        start->next = NULL;
+        start->next = start;
         return;
     }
+    node *p;
+    p = start;
+    
+    while(p->next != start)
+        p = p->next;
 
     temp->data = x;
     temp->next = start;
+    p->next = temp;
     start = temp;
 }
 
@@ -100,19 +106,19 @@ void insertatEnd(int x)
     {
         start = temp;
         start->data = x;
-        start->next = temp;
+        start->next = start;
         return;
     }
 
     node *p;
     p = start;
 
-    while(p->next != NULL)
+    while(p->next != start)
         p = p->next;
 
     temp->data = x;
-    temp->next = NULL;
     p->next = temp;
+    temp->next = start;
 }
 
 void delete(int loc)
@@ -120,21 +126,31 @@ void delete(int loc)
     int len = length(start);
 
     node *temp = (node*)malloc(sizeof(node));
+    node *p, *q;
 
     if(loc > len)
         printf("Invalid!\n");
 
+    else if(start->next == start)
+    {
+        start->next = NULL;
+        free(start);
+    }
+
     else if(loc == 1)
     {
-        temp = start;
-        start = temp->next;
-        temp->next = NULL;
-        free(temp);
+        p = start;
+
+        while(p->next != start)
+            p = p->next;
+
+        p->next = start->next;
+        free(start);
+        start = p->next;
     }
 
     else
     {
-        node *p, *q;
         p = start;
         int i=1;
 
@@ -154,53 +170,64 @@ void delete(int loc)
 void display(node* n)
 {
     printf("\n------------------------------------------------------------------------------------------------------\n");
-    while(n != NULL)
+    while(n->next != start)
     {
         printf("%d\t", n->data);
         n = n->next;
     }
+    printf("%d\n", n->data);
     printf("\n------------------------------------------------------------------------------------------------------\n");
 }
 
-void reverse()
-{
-    node *p, *q;
-    int i, j, k, len, temp;
+// void reverse()
+// {
+//     node *p, *q;
+//     int i, j, k, len, temp;
 
-    len = length(start);
+//     len = length(start);
 
-    p = q = start;
-    i = 0;
-    j = len - 1;
+//     p = q = start;
+//     i = 0;
+//     j = len - 1;
 
-    while(i<j)
-    {
-        k=0;
-        while(k<j)
-        {
-            q = q->next;
-            k++;
-        }
-        temp = p->data;
-        p->data = q->data;
-        q->data = temp;
+//     while(i<j)
+//     {
+//         k=0;
+//         while(k<j)
+//         {
+//             q = q->next;
+//             k++;
+//         }
+//         temp = p->data;
+//         p->data = q->data;
+//         q->data = temp;
 
-        i++;
-        j--;
+//         i++;
+//         j--;
 
-        p = p->next;
-        q = start;
-    }
-}
+//         p = p->next;
+//         q = start;
+//     }
+// }
 
 int length(node *n)
 {
     int count = 0;
-    while(n != NULL)
+    
+    if(start == NULL)
+    {
+        return 0;
+    }
+    else
     {
         count++;
-        n = n->next;
+        while(n->next != start)
+        {
+            count++;
+            n = n->next;
+        }
     }
+    
     return count;
 }
 
@@ -218,7 +245,7 @@ void insertAfter(int loc, int x)
     {
         start = temp;
         start->data = x;
-        start->next = NULL;
+        start->next = start;
         return;
     }
 
