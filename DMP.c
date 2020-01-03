@@ -1,4 +1,4 @@
-//This program counts the numbers of times each digit occur in a multi-digit number.
+//This program counts the number of times each digit occur in a multi-digit number.
 
 #include <stdio.h>
 
