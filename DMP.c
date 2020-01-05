@@ -5,7 +5,7 @@
 int main()
 {
     int num, i;
-    int count[10] = {0, 0, 0, 0, 0, 0, 0 ,0, 0, 0};
+    int count[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     printf("Enter the number: ");
     scanf("%d", &num);
     
